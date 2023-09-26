@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lets Get the Weather</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .border-custom-thickness {
+            border-width: 3px;
+        }
+    </style>
+</head>
+
+<body class="bg-white-100">
+    <header class="bg-blue-500 p-4 text-black flex items-center justify-center">
+        <h1 class="text-6xl font-bold">Weather Dashboard</h1>
+    </header>
+    <div class="flex justify-between">
+        <section style="width: 300px;">
+            <h2 class="text-3xl mb-2 p-2 font-bold flex">Search for a City:</h2>
+            <main class="container p-4">
+                <section class=" ">
+                    <section class="w-full h-full">
+                        <form action="submit" class="flex">
+                            <input type="text" placeholder="Search for a city"
+                                class="w-2/3 p-2 border border-gray-300 rounded-l-lg" aria-label="Search for a city">
+                            <button type="submit" class="w-1/3 bg-blue-500 text-white p-2 rounded-r-lg">
+                                Search
+                            </button>
+                        </form>
+                    </section>
+                </section>
+                <section class="h-1/2 flex flex-col">
+                    <button type="submit" class=" bg-gray-300 text-white p-2 rounded-lg mb-2 mt-2">Atlanta</button>
+                    <button type="submit" class=" bg-gray-300 text-white p-2 rounded-lg mb-2">New York</button>
+                    <button type="submit" class=" bg-gray-300 text-white p-2 rounded-lg mb-2">Denver</button>
+                    <button type="submit" class=" bg-gray-300 text-white p-2 rounded-lg mb-2">Seattle</button>
+                    <button type="submit" class=" bg-gray-300 text-white p-2 rounded-lg mb-2">San
+                        Francisco</button>
+                    <button type="submit" class=" bg-gray-300 text-white p-2 rounded-lg mb-2">Orlando</button>
+                    <button type="submit" class=" bg-gray-300 text-white p-2 rounded-lg mb-2">San
+                        Francisco</button>
+                    <button type="submit" class=" bg-gray-300 text-white p-2 rounded-lg mb-2">Orlando</button>
+                </section>
+            </main>
+        </section>
+        <section>
+            <section class="border border-gray-900 border-custom-thickness p-4 w-1/2 ml-auto mr-10  mt-2">
+                <h1 class="text-3xl font-bold">City/ date</h1>
+                <h3 class="text-2xl">Temp:</h3>
+                <h3 class="text-2xl">Wind:</h3>
+                <h3 class="text-2xl">Humididty: </h3>
+            </section>
+
+
+            <section class="flex flex-col">
+                <section class="flex p-4 justify-end">
+                    <h1 class="text-3xl mb-2 p-2 font-bold">5-day Forcast:</h1>
+                    <section class="max-w-sm rounded overflow-hidden shadow-lg bg-gray-300 mr-2">
+                        <section class="px-6 py-4">
+                            <section class="font-bold text-xl mb-2">9/14/2022</section>
+                            <p class="text-gray-700 text-base">Temp:</p>
+                            <p class="text-gray-700 text-base">Wind:</p>
+                            <p class="text-gray-700 text-base">Humidity:</p>
+                        </section>
+                    </section>
+
+
+                    <section class="max-w-sm rounded overflow-hidden shadow-lg bg-gray-300 mr-2">
+                        <section class="px-6 py-4">
+                            <section class="font-bold text-xl mb-2">9/14/2022</section>
+                            <p class="text-gray-700 text-base">Temp:</p>
+                            <p class="text-gray-700 text-base">Wind:</p>
+                            <p class="text-gray-700 text-base">Humidity:</p>
+                        </section>
+                    </section>
+
+
+                    <section class="max-w-sm rounded overflow-hidden shadow-lg bg-gray-300 mr-2">
+                        <section class="px-6 py-4">
+                            <section class="font-bold text-xl mb-2">9/14/2022</section>
+                            <p class="text-gray-700 text-base">Temp:</p>
+                            <p class="text-gray-700 text-base">Wind:</p>
+                            <p class="text-gray-700 text-base">Humidity:</p>
+                        </section>
+                    </section>
+
+
+                    <section class="max-w-sm rounded overflow-hidden shadow-lg bg-gray-300 mr-2">
+                        <section class="px-6 py-4">
+                            <section class="font-bold text-xl mb-2">9/14/2022</section>
+                            <p class="text-gray-700 text-base">Temp:</p>
+                            <p class="text-gray-700 text-base">Wind:</p>
+                            <p class="text-gray-700 text-base">Humidity:</p>
+                        </section>
+                    </section>
+
+
+                    <section class="max-w-sm rounded overflow-hidden shadow-lg bg-gray-300 mr-2">
+                        <section class="px-6 py-4">
+                            <section class="font-bold text-xl mb-2">9/14/2022</section>
+                            <p class="text-gray-700 text-base">Temp:</p>
+                            <p class="text-gray-700 text-base">Wind:</p>
+                            <p class="text-gray-700 text-base">Humidity:</p>
+                        </section>
+                    </section>
+                </section>
+            </section>
+        </section>
+    </div>
+
+
+    <script src="Assets\script.js"></script>
+</body>
+
+</html>
