@@ -1,4 +1,9 @@
 document.addEventListener('DOMContentLoaded', function () {
+
+  const buttonsContainer = document.getElementById('buttonsContainer');
+
+
+
   // Get references to all the buttons by their IDs
   const atlantaButton = document.getElementById('AtlantaButton');
   const newYorkButton = document.getElementById('newYorkButton');
@@ -168,13 +173,31 @@ document.addEventListener('DOMContentLoaded', function () {
     // Filter the forecast data to include only the next 6 days
     
 
-    // Display the 6-day forecast on the cards
-    displaySixDayForecast(forecastList, cityInfo);
+  
   })
   .catch((error) => {
     console.error('There was a problem with the fetch operation:', error);
   });
   }
+
+
+    // Add a click event listener to the parent container for delegation
+    buttonsContainer.addEventListener('click', function (event) {
+      // Check if a button was clicked
+      if (event.target.tagName === 'BUTTON') {
+        const cityName = event.target.textContent.trim();
+        // Store the selected city in localStorage
+        localStorage.setItem('selectedCity', cityName);
+        // Call the function to fetch and display weather data for the selected city
+        fetchAndDisplayWeatherForCity(cityName);
+      }
+    });
+  
+    // Check if there's a selected city in localStorage and fetch its weather data
+    const selectedCity = localStorage.getItem('selectedCity');
+    if (selectedCity) {
+      fetchAndDisplayWeatherForCity(selectedCity);
+    }
 //   function getNext6Days() {
 //     const next6Days = [];
 //     const today = new Date();
