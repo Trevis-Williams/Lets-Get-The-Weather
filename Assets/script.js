@@ -1,3 +1,5 @@
+const today = new Date();
+
 document.addEventListener('DOMContentLoaded', function () {
 
   const buttonsContainer = document.getElementById('buttonsContainer');
@@ -191,49 +193,59 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   
-    // Check if there's a selected city in localStorage and fetch its weather data
+   
     const selectedCity = localStorage.getItem('selectedCity');
     if (selectedCity) {
       fetchAndDisplayWeatherForCity(selectedCity);
     }
-//   function getNext6Days() {
-//     const next6Days = [];
-//     const today = new Date();
-//     for (let i = 0; i < 6; i++) {
-//       const date = new Date(today);
-//       date.setDate(today.getDate() + i);
-//       const dateString = date.toISOString().split('T')[0];
-//       next6Days.push(dateString);
-//     }
-//     return next6Days;
-//   }
-//   const todayDate = new Date();
-//   const tommorowDate = new Date();
-//   const thirdDate = new Date();
-//   const forthDate = new Date();
-//   const fithDate = new Date();
-  
-// document.getElementById('date0').textContent = `${todayDate.toISOString().split('T')[0]}`;
-// document.getElementById('date1').textContent = `${tommorowDate.toISOString().split('T')[1]}`;
-// document.getElementById('date2').textContent = `${thirdDate.toISOString().split('T')[2]}`;
-// document.getElementById('date3').textContent = `${forthDate.toISOString().split('T')[3]}`;
-// document.getElementById('date4').textContent = `${fithDate.toISOString().split('T')[4]}`;
-// // Get the next 5 days
-// const next6Days = getNext6Days();
 
-// // Define the forecastList variable and filter the forecast data
-// const forecastList = weatherData.list.filter((forecast) => {
-//   const date = forecast.dt_txt.split(' ')[0];
-//   return next6Days.includes(date);
-// });
+    const tomorrow = new Date();
+tomorrow.setDate(today.getDate() );
+const tomorrowDateString = tomorrow.toISOString().split('T')[0];
 
-// // Loop through the forecastList and update the dates on each card
-// for (let i = 0; i < forecastList.length && i < 5; i++) {
-//   const dateElement = document.getElementById(`date${i}`);
-//   dateElement.textContent = `Date: ${next6Days[i]}`;
-// }
 
-});
+document.getElementById('date0').textContent = `${tomorrowDateString}`;
+
+const dayAfterTomorrow = new Date();
+dayAfterTomorrow.setDate(tomorrow.getDate() + 1);
+const dayAfterTomorrowDateString = dayAfterTomorrow.toISOString().split('T')[0];
+
+
+document.getElementById('date1').textContent = `${dayAfterTomorrowDateString}`;
+
+
+const thirdDay = new Date();
+thirdDay.setDate(today.getDate() + 2);
+
+
+const thirdDayDateString = thirdDay.toISOString().split('T')[0];
+
+
+document.getElementById('date2').textContent = `${thirdDayDateString}`;
+
+const fourthDay = new Date();
+fourthDay.setDate(today.getDate() + 3); 
+
+
+const fourthDayDateString = fourthDay.toISOString().split('T')[0];
+
+
+document.getElementById('date3').textContent = `${fourthDayDateString}`;
+
+
+const fifthDay = new Date();
+fifthDay.setDate(today.getDate() + 4); 
+
+
+const fifthDayDateString = fifthDay.toISOString().split('T')[0];
+
+
+document.getElementById('date4').textContent = `${fifthDayDateString}`;
+
+  })
+
+
+
 
 
 
