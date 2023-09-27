@@ -49,17 +49,17 @@ document.addEventListener('DOMContentLoaded', function () {
   // Add a click event listener to a parent container for delegation
   const searchForm = document.getElementById('searchForm');
   searchForm.addEventListener('submit', function (event) {
-    event.preventDefault(); // Prevent the default form submission behavior
+    event.preventDefault(); 
 
     const cityInput = document.getElementById('cityInput');
     const cityName = cityInput.value.trim();
 
     if (cityName === '') {
-      alert('Please enter a city name.'); // Display an error message if the input is empty
+      alert('Please enter a city name.'); 
       return;
     }
 
-    // Call the function to fetch and display weather data for the entered city
+    
     fetchAndDisplayWeatherForCity(cityName);
   });
 
@@ -170,7 +170,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('temp3').textContent = `Temp: ${forthTempInFahrenheit.toFixed(4)}°F`;
     document.getElementById('temp4').textContent = `Temp: ${fithTempInFahrenheit.toFixed(5)}°F`;
     document.getElementById('temp5').textContent = `Temp: ${sixthTempInFahrenheit.toFixed(6)}°F`;
-    // Filter the forecast data to include only the next 6 days
+    
     
 
   
@@ -181,14 +181,12 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
 
-    // Add a click event listener to the parent container for delegation
+    
     buttonsContainer.addEventListener('click', function (event) {
-      // Check if a button was clicked
       if (event.target.tagName === 'BUTTON') {
         const cityName = event.target.textContent.trim();
         // Store the selected city in localStorage
         localStorage.setItem('selectedCity', cityName);
-        // Call the function to fetch and display weather data for the selected city
         fetchAndDisplayWeatherForCity(cityName);
       }
     });
