@@ -18,13 +18,13 @@
         <h1 class="text-6xl font-bold">Weather Dashboard</h1>
     </header>
     <div class="flex justify-between">
-        <section style="width: 300px;">
+        <section style="width: 400px;">
             <h2 class="text-3xl mb-2 p-2 font-bold flex">Search for a City:</h2>
             <main class="container p-4">
                 <section class=" ">
                     <section class="w-full h-full">
-                        <form action="submit" class="flex">
-                            <input type="text" placeholder="Search for a city"
+                        <form id="searchForm" onsubmit="searchForCity(); return false;" class="flex">
+                            <input id="cityInput" type="text" placeholder="Search for a city"
                                 class="w-2/3 p-2 border border-gray-300 rounded-l-lg" aria-label="Search for a city">
                             <button type="submit" class="w-1/3 bg-blue-500 text-white p-2 rounded-r-lg">
                                 Search
@@ -32,83 +32,99 @@
                         </form>
                     </section>
                 </section>
-                <section class="h-1/2 flex flex-col">
-                    <button type="submit" class=" bg-gray-300 text-white p-2 rounded-lg mb-2 mt-2">Atlanta</button>
-                    <button type="submit" class=" bg-gray-300 text-white p-2 rounded-lg mb-2">New York</button>
-                    <button type="submit" class=" bg-gray-300 text-white p-2 rounded-lg mb-2">Denver</button>
-                    <button type="submit" class=" bg-gray-300 text-white p-2 rounded-lg mb-2">Seattle</button>
-                    <button type="submit" class=" bg-gray-300 text-white p-2 rounded-lg mb-2">San
-                        Francisco</button>
-                    <button type="submit" class=" bg-gray-300 text-white p-2 rounded-lg mb-2">Orlando</button>
-                    <button type="submit" class=" bg-gray-300 text-white p-2 rounded-lg mb-2">San
-                        Francisco</button>
-                    <button type="submit" class=" bg-gray-300 text-white p-2 rounded-lg mb-2">Orlando</button>
+                <section class="h-1/2 flex flex-col button-container">
+                    <button id="AtlantaButton" type="submit"
+                        class=" bg-gray-300 text-white p-2 rounded-lg mb-2 mt-2">Atlanta</button>
+                    <button id="newYorkButton" type="submit" class=" bg-gray-300 text-white p-2 rounded-lg mb-2">New
+                        York</button>
+                    <button id="denverButton" type="submit"
+                        class=" bg-gray-300 text-white p-2 rounded-lg mb-2">Denver</button>
+                    <button id="seattleButton" type="submit"
+                        class=" bg-gray-300 text-white p-2 rounded-lg mb-2">Seattle</button>
+                    <button id="sanFranciscoButton" type="submit"
+                        class=" bg-gray-300 text-white p-2 rounded-lg mb-2">SanFrancisco</button>
+                    <button id="orlandoButton" type="submit"
+                        class=" bg-gray-300 text-white p-2 rounded-lg mb-2">Orlando</button>
+                    <button id="redmondButton" type="submit"
+                        class=" bg-gray-300 text-white p-2 rounded-lg mb-2">Redmond</button>
+                    <button id="bendButton" type="submit"
+                        class=" bg-gray-300 text-white p-2 rounded-lg mb-2">Bend</button>
                 </section>
             </main>
         </section>
-        <section>
-            <section class="border border-gray-900 border-custom-thickness p-4 w-1/2 ml-auto mr-10  mt-2">
-                <h1 class="text-3xl font-bold">City/ date</h1>
-                <h3 class="text-2xl">Temp:</h3>
-                <h3 class="text-2xl">Wind:</h3>
-                <h3 class="text-2xl">Humididty: </h3>
+
+        <section class="flex flex-col">
+            <section style="width: 800px;"
+                class="border border-gray-900 border-custom-thickness p-4  ml-auto mr-10  mt-2">
+                <p id="city0" class="font-bold text-xl mb-2">Today in:</p>
+                <p id="temp0" class="text-gray-700 text-base">Temp:</p>
+                <p id="wind0" class="text-gray-700 text-base">Wind:</p>
+                <p id="humidity0" class="text-gray-700 text-base">Humidity:</p>
+                <img id="icon0">
             </section>
 
-
-            <section class="flex flex-col">
-                <section class="flex p-4 justify-end">
-                    <h1 class="text-3xl mb-2 p-2 font-bold">5-day Forcast:</h1>
-                    <section class="max-w-sm rounded overflow-hidden shadow-lg bg-gray-300 mr-2">
-                        <section class="px-6 py-4">
-                            <section class="font-bold text-xl mb-2">9/14/2022</section>
-                            <p class="text-gray-700 text-base">Temp:</p>
-                            <p class="text-gray-700 text-base">Wind:</p>
-                            <p class="text-gray-700 text-base">Humidity:</p>
-                        </section>
-                    </section>
-
-
-                    <section class="max-w-sm rounded overflow-hidden shadow-lg bg-gray-300 mr-2">
-                        <section class="px-6 py-4">
-                            <section class="font-bold text-xl mb-2">9/14/2022</section>
-                            <p class="text-gray-700 text-base">Temp:</p>
-                            <p class="text-gray-700 text-base">Wind:</p>
-                            <p class="text-gray-700 text-base">Humidity:</p>
-                        </section>
-                    </section>
-
-
-                    <section class="max-w-sm rounded overflow-hidden shadow-lg bg-gray-300 mr-2">
-                        <section class="px-6 py-4">
-                            <section class="font-bold text-xl mb-2">9/14/2022</section>
-                            <p class="text-gray-700 text-base">Temp:</p>
-                            <p class="text-gray-700 text-base">Wind:</p>
-                            <p class="text-gray-700 text-base">Humidity:</p>
-                        </section>
-                    </section>
-
-
-                    <section class="max-w-sm rounded overflow-hidden shadow-lg bg-gray-300 mr-2">
-                        <section class="px-6 py-4">
-                            <section class="font-bold text-xl mb-2">9/14/2022</section>
-                            <p class="text-gray-700 text-base">Temp:</p>
-                            <p class="text-gray-700 text-base">Wind:</p>
-                            <p class="text-gray-700 text-base">Humidity:</p>
-                        </section>
-                    </section>
-
-
-                    <section class="max-w-sm rounded overflow-hidden shadow-lg bg-gray-300 mr-2">
-                        <section class="px-6 py-4">
-                            <section class="font-bold text-xl mb-2">9/14/2022</section>
-                            <p class="text-gray-700 text-base">Temp:</p>
-                            <p class="text-gray-700 text-base">Wind:</p>
-                            <p class="text-gray-700 text-base">Humidity:</p>
+            <div class="flex flex-row gap-2 mt-5">
+                <section class="flex flex-col">
+                    <section class="flex p-4 justify-end">
+                        <h1 class="text-3xl p-2 font-bold">Next 5 days:</h1>
+                        <section id="weatherCard0" class="max-w-sm rounded overflow-hidden shadow-lg bg-gray-300 mr-2">
+                            <section class="px-6 py-4">
+                                <p id="date0" class="font-bold text-xl mb-2">Date</p>
+                                <p id="temp1" class="text-gray-700 text-base">Temp:</p>
+                                <p id="wind1" class="text-gray-700 text-base">Wind:</p>
+                                <p id="humidity1" class="text-gray-700 text-base">Humidity:</p>
+                                <img id="icon1">
+                            </section>
                         </section>
                     </section>
                 </section>
-            </section>
-        </section>
+
+
+                <section id="weatherCard1" class="max-w-sm rounded overflow-hidden shadow-lg bg-gray-300 mr-2">
+                    <section class="px-6 py-4">
+                        <p id="date1" class="font-bold text-xl mb-2">Date</p>
+                        <p id="temp2" class="text-gray-700 text-base">Temp:</p>
+                        <p id="wind2" class="text-gray-700 text-base">Wind:</p>
+                        <p id="humidity2" class="text-gray-700 text-base">Humidity:</p>
+                        <img id="icon2">
+                    </section>
+                </section>
+
+
+                <section id="weatherCard2" class="max-w-sm rounded overflow-hidden shadow-lg bg-gray-300 mr-2">
+                    <section class="px-6 py-4">
+
+                        <p id="date2" class="font-bold text-xl mb-2">Date</p>
+                        <p id="temp3" class="text-gray-700 text-base">Temp:</p>
+                        <p id="wind3" class="text-gray-700 text-base">Wind:</p>
+                        <p id="humidity3" class="text-gray-700 text-base">Humidity:</p>
+                        <img id="icon3">
+                    </section>
+                </section>
+
+
+                <section id="weatherCard3" class="max-w-sm rounded overflow-hidden shadow-lg bg-gray-300 mr-2">
+                    <section class="px-6 py-4">
+
+                        <p id="date3" class="font-bold text-xl mb-2">Date</p>
+                        <p id="temp4" class="text-gray-700 text-base">Temp:</p>
+                        <p id="wind4" class="text-gray-700 text-base">Wind:</p>
+                        <p id="humidity4" class="text-gray-700 text-base">Humidity:</p>
+                        <img id="icon4">
+                    </section>
+                </section>
+
+                <section id="weatherCard4" class="max-w-sm rounded overflow-hidden shadow-lg bg-gray-300 mr-2">
+                    <section class="px-6 py-4">
+
+                        <p id="date4" class="font-bold text-xl mb-2">Date</p>
+                        <p id="temp5" class="text-gray-700 text-base">Temp:</p>
+                        <p id="wind5" class="text-gray-700 text-base">Wind:</p>
+                        <p id="humidity5" class="text-gray-700 text-base">Humidity:</p>
+                        <img id="icon5">
+                    </section>
+                </section>
+            </div>
     </div>
 
 
