@@ -1,7 +1,6 @@
 const today = new Date();
 var citynames = JSON.parse(localStorage.getItem('selectedCity')) || []
 
-// Function to load and display recently searched cities from local storage
 function loadRecentlySearchedCities() {
   // Get the "Recently Searched" section
   const recentlySearchedSection = document.querySelector('.recently-searched-section');
@@ -408,5 +407,3 @@ localStorage.setItem('recentlySearchedCities', JSON.stringify(previouslySearched
   // Fetch and display weather data for the entered city
   fetchAndDisplayWeatherForCity(cityName);
 });
-
-
