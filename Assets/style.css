@@ -1,0 +1,15 @@
+
+/* Add hover effect to change background color on hover */
+.city-button:hover {
+    background-color: #e74c3c; /* Background color on hover */
+}
+
+
+.recentaly-searched{
+    font-size: 40px;
+    position: absolute;
+    top: 600px;
+    width: 350px;
+    left: 5px;
+    border-bottom: solid black;
+}
