@@ -1,17 +1,19 @@
 const today = new Date();
 var citynames = JSON.parse(localStorage.getItem('selectedCity')) || []
 
-function loadRecentlySearchedCities() {
-  // Get the "Recently Searched" section
-  const recentlySearchedSection = document.querySelector('.recently-searched-section');
 
-  // Clear the existing content of the section
-  recentlySearchedSection.innerHTML = '';
 
-  // Get the recently searched cities from local storage
-  const recentlySearchedCities = JSON.parse(localStorage.getItem('recentlySearchedCities')) || [];
+// Function to update the recently searched cities UI
+let recentlySearchedCities = [];
 
-  // Iterate through the recently searched cities and create buttons
+// Reference to the history div in your HTML
+const historyDiv = document.getElementById('history');
+
+// Function to update the recently searched cities UI
+function updateRecentlySearchedUI() {
+  // Clear the previous list
+  historyDiv.innerHTML = '';
+
   recentlySearchedCities.forEach((cityName) => {
     const cityButton = document.createElement('button');
     cityButton.textContent = cityName;
@@ -23,9 +25,21 @@ function loadRecentlySearchedCities() {
     });
 
     // Append the button to the "Recently Searched" section
-    recentlySearchedSection.appendChild(cityButton);
+    historyDiv.appendChild(cityButton);
   });
 }
+
+// Function to add a city to the list of recently searched cities
+function addCityToRecentlySearched(cityName) {
+  recentlySearchedCities.unshift(cityName); // Add to the beginning of the array
+  if (recentlySearchedCities.length > 5) {
+    recentlySearchedCities.pop(); // Keep only the last 5 cities
+  }
+  // Update the UI
+  updateRecentlySearchedUI();
+}
+
+
 
 // Call the function to load and display recently searched cities when the page loads
 document.addEventListener('DOMContentLoaded', function () {
@@ -108,6 +122,19 @@ document.addEventListener('DOMContentLoaded', function () {
     citynames.push(cityName)
     localStorage.setItem('selectedCity', JSON.stringify( citynames));
     fetchAndDisplayWeatherForCity(cityName);
+    document.querySelector("#history").innerHTML = "" 
+    for (let i = 0; i < citynames.length; i++) {
+      var newBtn = document.createElement("button");
+      newBtn.textContent = citynames[i];
+      newBtn.classList = "bg-gray-300 text-white p-2 rounded-lg mb-2 w-1/5 mt-12"
+      newBtn.style.display = "block"; // Set display property to "block"
+      newBtn.addEventListener('click', function (event) {
+        fetchAndDisplayWeatherForCity(event.target.textContent);
+      });
+
+      document.querySelector("#history").append(newBtn)
+  }
+
   });
 
   function saveCity(event) {
